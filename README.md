@@ -1,4 +1,4 @@
-# LogiCentral
+# LastMile
 
 Plataforma de gestión logística de última milla para una empresa de retail digital.
 
