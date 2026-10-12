@@ -17,3 +17,31 @@ Plataforma de gestión logística de última milla para una empresa de retail di
 ## Materia
 
 Fundamentos de Arquitectura de Software.
+
+
+## Actividad 2: requisitos y decisión estructural
+
+### Resumen del problema
+
+La empresa de retail digital recibe pedidos por varios canales, tiene inventario distribuido y coordina entregas sin una vista centralizada. Esto genera pedidos duplicados, inconsistencias de inventario, entregas retrasadas y poca trazabilidad.
+
+### Requisitos prioritarios
+
+1. **Consistencia de inventario (RNF-05):** no confirmar pedidos sobre stock que no existe.
+2. **Trazabilidad (RNF-04):** cada cambio de estado de un pedido queda registrado.
+3. **Facilidad de evolución (RNF-06):** cambiar reglas de negocio sin reescribir todo el sistema.
+4. **Disponibilidad (RNF-02):** 99,5 % en horario operativo.
+5. **Seguridad (RNF-03):** datos sensibles cifrados y acceso por rol.
+
+### Decisión arquitectónica
+
+Se elige un **monolito modular con límites de dominio claros** (Pedidos, Inventario, Entregas y rutas, Incidencias y soporte, Integraciones y notificaciones), frente a una arquitectura de servicios distribuidos. Reduce costo, complejidad y riesgo operativo, facilita la consistencia de inventario y la trazabilidad, y deja abierta la posibilidad de separar módulos si el crecimiento lo justifica.
+
+### Documentos
+
+- [Catálogo de requisitos](./docs/actividad-2/01-catalogo-requisitos.md)
+- [Matriz de priorización](./docs/actividad-2/02-matriz-priorizacion.md)
+- [Escenarios de calidad](./docs/actividad-2/03-escenarios-calidad.md)
+- [Comparación de alternativas](./docs/actividad-2/04-comparacion-alternativas.md)
+- [ADR-001: estructura de la plataforma](./docs/actividad-2/ADR-001-estructura-plataforma.md)
+- [Criterios verificables](./docs/actividad-2/05-criterios-verificables.md)
