@@ -45,3 +45,6 @@ Se elige un **monolito modular con límites de dominio claros** (Pedidos, Invent
 - [Comparación de alternativas](./docs/actividad-2/04-comparacion-alternativas.md)
 - [ADR-001: estructura de la plataforma](./docs/actividad-2/ADR-001-estructura-plataforma.md)
 - [Criterios verificables](./docs/actividad-2/05-criterios-verificables.md)
+### Video de sustentación
+
+[Ver video de la Actividad 2](https://youtu.be/a2_YGmJpnn0)
