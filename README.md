@@ -48,3 +48,40 @@ Se elige un **monolito modular con límites de dominio claros** (Pedidos, Invent
 ### Video de sustentación
 
 [Ver video de la Actividad 2](https://youtu.be/a2_YGmJpnn0)
+
+
+
+## Actividad 3: diseño y dominio
+
+### Flujo diseñado
+
+**Asignar un repartidor a una entrega**: una entrega confirmada debe quedar a cargo de exactamente un repartidor disponible y con capacidad, y el resultado debe informarse al resto del sistema.
+
+### Propuesta
+
+- **Modelo de dominio:** la entidad `Delivery` protege las reglas del negocio (un solo repartidor, estado *Pendiente*, repartidor disponible y no saturado). Los datos se describen con objetos de valor (`DeliveryAddress`, `DeliveryWindow`, `CourierAvailability`).
+- **Tres capas:** Dominio, Aplicación e Infraestructura, con dependencias hacia adentro.
+- **Puertos y adaptadores:** el caso de uso `AssignCourierUseCase` depende de interfaces (`IDeliveryRepository`, `ICourierAvailabilityPort`, `IDeliveryEventPublisher`); la infraestructura las implementa.
+- **Contextos:** Pedidos, Entregas y rutas e Integraciones se comunican por eventos y referencias por identificador.
+
+```mermaid
+flowchart BT
+  I["Infrastructure: adaptadores"] --> A["Application: casos de uso y puertos"]
+  A --> D["Domain: entidades e invariantes"]
+```
+
+### Documentos
+
+- [Architecture.md](./Architecture.md)
+- [Flujo de negocio](./docs/actividad-3/01-flujo-negocio.md)
+- [Glosario de lenguaje ubicuo](./docs/actividad-3/02-glosario-lenguaje-ubicuo.md)
+- [Modelo de dominio](./docs/actividad-3/03-modelo-dominio.md)
+- [Invariantes y escenarios de aceptación](./docs/actividad-3/04-invariantes-y-escenarios.md)
+- [Contextos y contratos](./docs/actividad-3/05-contextos-y-contratos.md)
+- [Casos de uso, puertos y adaptadores](./docs/actividad-3/06-casos-de-uso-puertos-adaptadores.md)
+- [Diagrama C4](./docs/actividad-3/07-diagrama-c4.md)
+- [ADR-002: diseño del dominio y límites](./docs/actividad-3/ADR-002-diseno-dominio-y-limites.md)
+
+### Video de sustentación
+
+[Ver video de la Actividad 3]()
